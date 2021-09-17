@@ -1,9 +1,7 @@
 import {FC} from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import MainNavigation from "../components/shared/MainNavigation";
-import Employees from "../pages/Employees";
-import Projects from "../pages/Projects";
-import Customers from "../pages/Customers";
+import {Customers, Employees, Projects} from "../pages"
 
 
 const Routing: FC = () => {
@@ -12,7 +10,6 @@ const Routing: FC = () => {
             <BrowserRouter>
                 <MainNavigation />
                 <Switch>
-                    <Route exact path={"/"} />
                     <Route path={"/employees"} component={Employees} />
                     <Route path={"/projects"} component={Projects} />
                     <Route path={"/customers"} component={Customers} />
