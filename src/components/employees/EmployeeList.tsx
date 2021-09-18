@@ -3,7 +3,7 @@ import {IEmployee} from "../../interfaces/interfaces";
 import EmployeeItem from "./EmployeeItem";
 
 const EmployeeList: FC = () => {
-    const [employee] = useState<Array<IEmployee>>(
+    const [employees] = useState<Array<IEmployee>>(
         [
             {name: "Henrik", job_desc: "UI"},
             {name: "Venicia", job_desc: "Frontend"},
@@ -11,13 +11,18 @@ const EmployeeList: FC = () => {
             {name: "David", job_desc: "HR"},
         ]
     )
+
+    function renderEmployeeList() {
+        return employees.map( (employee) => {
+            return (
+                <EmployeeItem name={employee.name} job_desc={employee.job_desc} />
+            )
+        })
+    }
+
     return (
         <>
-            {
-                employee.map( (employee) => {
-                    return <EmployeeItem name={employee.name} job_desc={employee.job_desc} />
-                })
-            }
+            { renderEmployeeList() }
         </>
     )
 }
