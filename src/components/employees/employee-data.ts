@@ -12,6 +12,8 @@ export const getEmployees = () => {
 }
 
 export const addEmployee = (name: string, job:string) => {
-    console.log(employees)
-    employees.push({name: name, job_desc:job})
+    if (name && job) employees.push({name: name, job_desc:job})
+    else alert("You have an empty field!")
 }
+
+
