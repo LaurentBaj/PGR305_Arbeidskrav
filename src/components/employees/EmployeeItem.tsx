@@ -6,7 +6,7 @@ const EmployeeItem:FC<IEmployee> = ({name, job_desc}) => {
         <>
             <article>
                 <h3>{name}</h3>
-                <p>{job_desc}</p>
+                <p>Job Description: {job_desc}</p>
             </article>
         </>
     )
