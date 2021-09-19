@@ -1,15 +1,14 @@
-import {FC, useEffect, useState} from "react";
+import {FC, useState} from "react";
 import {ICustomer} from "../../interfaces/interfaces";
-import {getCustomers} from "./customer-data";
 import CustomerItem from "./CustomerItem";
 
-
-const CustomerList:FC<Array<ICustomer>> = () => {
-    const [customers, setCustomers] = useState<Array<ICustomer>> ([])
-
-    useEffect(() => {
-        setCustomers(getCustomers)
-    }, [])
+const CustomerList:FC = () => {
+    const [ customers ] = useState<Array<ICustomer>>(
+        [
+            {name: "Peder"}, {name: "Frida"}, {name: "Even"},
+            {name: "Sindre"}, {name: "Sopra Steria"}, {name: "Accenturre"}
+        ]
+    )
 
     return (
         <>
@@ -19,6 +18,5 @@ const CustomerList:FC<Array<ICustomer>> = () => {
         </>
     )
 }
-
 
 export default CustomerList
