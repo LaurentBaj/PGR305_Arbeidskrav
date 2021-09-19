@@ -15,6 +15,6 @@ export const getProjects = () => {
 }
 
 export const getProject = (proj: IProject) => {
-    let project = projects.find(name => name.name == proj.name)
+    let project = projects.find(name => name.name === proj.name)
     return project
 }
