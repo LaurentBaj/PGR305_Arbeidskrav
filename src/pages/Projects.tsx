@@ -1,6 +1,6 @@
 import {FC} from "react";
 
-const Projects:FC = () => {
+export const Projects:FC = () => {
     return (
         <>
             <section>
@@ -10,4 +10,3 @@ const Projects:FC = () => {
     )
 }
 
-export default Projects

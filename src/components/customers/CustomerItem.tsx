@@ -2,7 +2,7 @@ import {FC} from "react";
 import {ICustomer} from "../../interfaces/interfaces";
 
 
-const CustomerItem:FC<ICustomer> = ({name}) => {
+export const CustomerItem:FC<ICustomer> = ({name}) => {
     return (
         <>
             <article>
@@ -11,6 +11,3 @@ const CustomerItem:FC<ICustomer> = ({name}) => {
         </>
     )
 }
-
-
-export default CustomerItem

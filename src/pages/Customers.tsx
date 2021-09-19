@@ -1,7 +1,7 @@
 import {FC} from "react";
-import CustomerList from "../components/customers/CustomerList";
+import {CustomerList} from "../components/customers/CustomerList";
 
-const Customers:FC = () => {
+export const Customers:FC = () => {
     return (
         <>
             <section>
@@ -12,4 +12,3 @@ const Customers:FC = () => {
     )
 }
 
-export default Customers

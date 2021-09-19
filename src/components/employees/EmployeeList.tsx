@@ -1,9 +1,9 @@
 import {FC, useEffect, useState} from "react";
 import {IEmployee} from "../../interfaces/interfaces";
-import EmployeeItem from "./EmployeeItem";
+import {EmployeeItem} from "./EmployeeItem";
 import {getEmployees} from "./employee-data";
 
-const EmployeeList: FC = () => {
+export const EmployeeList: FC = () => {
     const [ employees, setEmployees ] = useState<Array<IEmployee>>([])
 
     useEffect( () => {
@@ -19,4 +19,3 @@ const EmployeeList: FC = () => {
     )
 }
 
-export default EmployeeList

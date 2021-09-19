@@ -1,7 +1,7 @@
 import {FC} from "react";
 import {IEmployee} from "../../interfaces/interfaces";
 
-const EmployeeItem:FC<IEmployee> = ({name, job_desc}) => {
+export const EmployeeItem:FC<IEmployee> = ({name, job_desc}) => {
     return (
         <>
             <article>
@@ -13,4 +13,3 @@ const EmployeeItem:FC<IEmployee> = ({name, job_desc}) => {
 }
 
 
-export default EmployeeItem

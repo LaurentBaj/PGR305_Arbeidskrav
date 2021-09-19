@@ -1,8 +1,8 @@
 import {FC, useState} from "react";
 import {ICustomer} from "../../interfaces/interfaces";
-import CustomerItem from "./CustomerItem";
+import {CustomerItem} from "./CustomerItem";
 
-const CustomerList:FC = () => {
+export const CustomerList:FC = () => {
     const [ customers ] = useState<Array<ICustomer>>(
         [
             {name: "Peder"}, {name: "Frida"}, {name: "Even"},
@@ -18,5 +18,3 @@ const CustomerList:FC = () => {
         </>
     )
 }
-
-export default CustomerList

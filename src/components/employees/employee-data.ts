@@ -4,7 +4,7 @@ const employees = Array<IEmployee>(
     {name: "Henrik", job_desc: "UI"},
     {name: "Venicia", job_desc: "Frontend"},
     {name: "Laurent", job_desc: "Backend"},
-    {name: "David", job_desc: "HR"},
+    {name: "David", job_desc: "HR"}
 )
 
 export const getEmployees = () => {
