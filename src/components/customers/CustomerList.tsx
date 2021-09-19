@@ -9,7 +9,6 @@ export const CustomerList:FC = () => {
             {name: "Sindre"}, {name: "Sopra Steria"}, {name: "Accenturre"}
         ]
     )
-
     return (
         <>
             { customers.map( (customer) => {

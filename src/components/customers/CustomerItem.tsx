@@ -1,7 +1,6 @@
 import {FC} from "react";
 import {ICustomer} from "../../interfaces/interfaces";
 
-
 export const CustomerItem:FC<ICustomer> = ({name}) => {
     return (
         <>
