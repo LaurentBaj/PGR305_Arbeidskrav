@@ -1,10 +1,13 @@
 import {FC, useEffect, useState} from "react";
-import {IProject} from "../../interfaces/interfaces";
-import {getProjects} from "./projects_data";
 import {ProjectItem} from "./ProjectItem";
+import {addProject, getProjects} from "./projects_data";
+import {IProject} from "../../interfaces/interfaces";
+
 
 export const ProjectList:FC = () => {
-    const [projects, setProjects] = useState<Array<IProject>>([])
+    const [projects, setProjects] = useState<Array<IProject>>(
+        getProjects
+    )
 
     useEffect(() => {
         setProjects(getProjects)
@@ -12,9 +15,11 @@ export const ProjectList:FC = () => {
 
     return (
         <>
-            {projects.map( project => {
-                return <ProjectItem name={project.name} status={project.status} employees={project.employees} />
-            })}
+            <section>
+                {projects.map( (e) => {
+                    return <ProjectItem name={e.name} status={e.status} employees={e.employees} />
+                })}
+            </section>
         </>
     )
 }

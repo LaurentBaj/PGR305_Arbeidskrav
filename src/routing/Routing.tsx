@@ -11,7 +11,7 @@ export const Routing: FC = () => {
                 <MainNavigation />
                 <Switch>
                     <Route path={"/employees"} component={Employees} />
-                    <Route path={"/projects_"} component={Projects} />
+                    <Route path={"/projects"} component={Projects} />
                     <Route path={"/customers"} component={Customers} />
                 </Switch>
             </BrowserRouter>
