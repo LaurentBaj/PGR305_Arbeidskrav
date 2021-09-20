@@ -3,6 +3,8 @@ import {IEmployee} from "../../interfaces/interfaces";
 import {EmployeeItem} from "./EmployeeItem";
 import {getEmployees} from "./employee-data";
 
+
+
 export const EmployeeList: FC = () => {
     const [ employees, setEmployees ] = useState<Array<IEmployee>>([])
 

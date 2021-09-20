@@ -1,7 +1,8 @@
 import {FC, useEffect, useState} from "react";
 import {ProjectItem} from "./ProjectItem";
-import {addProject, getProjects} from "./projects_data";
+import {getProjects} from "./projects_data";
 import {IProject} from "../../interfaces/interfaces";
+import {Link} from "react-router-dom";
 
 
 export const ProjectList:FC = () => {
@@ -17,7 +18,11 @@ export const ProjectList:FC = () => {
         <>
             <section>
                 {projects.map( (e) => {
-                    return <ProjectItem name={e.name} status={e.status} employees={e.employees} />
+                    return(
+                        <Link to={`/projects/edit`}>
+                            <ProjectItem name={e.name} status={e.status} employees={e.employees} />
+                        </Link>
+                    )
                 })}
             </section>
         </>

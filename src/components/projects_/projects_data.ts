@@ -34,9 +34,12 @@ export const getProjects = () => { // All projects
 
 
 // POST
-export const addProject = (projectName: string) => {
+export const addProject = (projectName: string) => { // Add single project (NULL emp by default)
     const project: IProject = {name: projectName, status:Status.START, employees: []}
     projects.push(project)
 }
+
+
+
 
 

@@ -7,11 +7,11 @@ export const ProjectItem:FC<IProject> = ({name, status, employees}) => {
         <article>
             <h2>{name}</h2>
             <p>Status: {status}</p>
-            {
-                employees.map( employee => {
-                    return <EmployeeItem key={employee.name} name={employee.name} job_desc={employee.job_desc} />
-                })
-            }
+            {/*{*/}
+            {/*    employees.map( employee => {*/}
+            {/*        return <EmployeeItem key={employee.name} name={employee.name} job_desc={employee.job_desc} />*/}
+            {/*    })*/}
+            {/*}*/}
         </article>
     )
 }

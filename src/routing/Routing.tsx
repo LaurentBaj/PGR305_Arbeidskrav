@@ -1,7 +1,7 @@
 import {FC} from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {MainNavigation} from "../components/shared/MainNavigation";
-import {Customers, Employees, Projects} from "../pages"
+import {Customers, Employees, Projects, EditProject} from "../pages"
 
 
 export const Routing: FC = () => {
@@ -11,8 +11,9 @@ export const Routing: FC = () => {
                 <MainNavigation />
                 <Switch>
                     <Route path={"/employees"} component={Employees} />
-                    <Route path={"/projects"} component={Projects} />
+                    <Route exact path={"/projects"} component={Projects} />
                     <Route path={"/customers"} component={Customers} />
+                    <Route path={`/projects/edit`} component={EditProject} />
                 </Switch>
             </BrowserRouter>
         </>
