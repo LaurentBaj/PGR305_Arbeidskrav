@@ -1,7 +1,8 @@
-import {IEmployee} from "../../interfaces/interfaces";
+import {IEmployee, IProject} from "../../interfaces/interfaces";
+import {Status} from "../shared/enums";
 
 
-// Default Employees
+// Default Projects and Employees
 export const dummyEmps1 = Array<IEmployee>(
     {name: "James", job_desc: "Backend"},
     {name: "Jenna", job_desc: "UI/UX"}
@@ -11,8 +12,11 @@ export const dummyEmps2 = Array<IEmployee>(
     {name: "Robert", job_desc: "UI/UX"},
     {name: "Dwight", job_desc: "Assistant to the Regional Manager"},
 )
-
-
+export const default_projects = Array<IProject>(
+    {name: "Fix Servers", status: Status.START, employees: []},
+    {name: "Integrate Build", status: Status.PENDING, employees: dummyEmps1},
+    {name: "Improve Coverage", status: Status.FINISHED, employees: dummyEmps2},
+)
 
 //
 // // Projects
