@@ -1,10 +1,9 @@
-import {FC, useEffect, useState} from "react";
+import {FC, useState} from "react";
 import {IProject} from "../interfaces/interfaces";
 
 
 export const EditProject:FC = () => {
-    const [current, setCurrent] = useState<IProject>()
-
+    const [current] = useState<IProject>()
     return (
         <>
             <h1>Hello</h1>
