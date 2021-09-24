@@ -1,5 +1,4 @@
-import {FC, useContext, useEffect, useState} from "react";
-import {IProject} from "../../interfaces/interfaces";
+import {FC, useContext} from "react";
 import {ProjectContext} from "../../contexts/ProjectContext";
 import {ProjectContextType} from "../../types/ProjectContextType";
 import {ProjectItem} from "./ProjectItem";
