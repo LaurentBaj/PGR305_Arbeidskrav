@@ -1,10 +1,14 @@
-import { FC } from "react";
+import {FC, useEffect, useState} from "react";
+import {IProject} from "../interfaces/interfaces";
 
 
 export const EditProject:FC = () => {
+    const [current, setCurrent] = useState<IProject>()
+
     return (
         <>
-            <h3>Hola senorita</h3>
+            <h1>Hello</h1>
+            <h1>{current?.name}</h1>
         </>
     )
 }

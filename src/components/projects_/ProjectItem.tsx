@@ -1,6 +1,5 @@
 import {FC} from "react";
 import {IProject} from "../../interfaces/interfaces";
-import {EmployeeItem} from "../employees/EmployeeItem";
 
 export const ProjectItem:FC<IProject> = ({name, status, employees}) => {
     return (

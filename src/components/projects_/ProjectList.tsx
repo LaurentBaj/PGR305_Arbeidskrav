@@ -1,30 +1,23 @@
-import {FC, useEffect, useState} from "react";
-import {ProjectItem} from "./ProjectItem";
-import {getProjects} from "./projects_data";
+import {FC, useContext, useEffect, useState} from "react";
 import {IProject} from "../../interfaces/interfaces";
-import {Link} from "react-router-dom";
+import {ProjectContext} from "../../contexts/ProjectContext";
+import {ProjectContextType} from "../../types/ProjectContextType";
+import {ProjectItem} from "./ProjectItem";
 
 
 export const ProjectList:FC = () => {
-    const [projects, setProjects] = useState<Array<IProject>>(
-        getProjects
-    )
+    const {projects} = useContext(ProjectContext) as ProjectContextType
 
-    useEffect(() => {
-        setProjects(getProjects)
-    }, [projects])
+    const createProjectList = () => {
+        return projects.map( (project:IProject, key:number) => {
+            return <ProjectItem name={project.name} status={project.status}
+                                key={key} employees={project.employees} />
+        })
+    }
 
     return (
-        <>
-            <section>
-                {projects.map( (e) => {
-                    return(
-                        <Link to={`/projects/edit`}>
-                            <ProjectItem name={e.name} status={e.status} employees={e.employees} />
-                        </Link>
-                    )
-                })}
-            </section>
-        </>
+        <section>
+            {createProjectList()}
+        </section>
     )
 }

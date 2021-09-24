@@ -12,5 +12,5 @@ export interface ICustomer {
 export interface IProject {
     name: string;
     status: Status;
-    employees: Array<IEmployee>
+    employees: Array<IEmployee>;
 }
