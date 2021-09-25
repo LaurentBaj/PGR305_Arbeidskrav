@@ -1,13 +1,15 @@
 import {FC, useState} from "react";
-import {IProject} from "../interfaces/interfaces";
+import {useParams} from "react-router-dom"
 
 
 export const EditProject:FC = () => {
-    const [current] = useState<IProject>()
+    const {name} = useParams() as any
+
     return (
         <>
-            <h1>Hello</h1>
-            <h1>{current?.name}</h1>
+            <h1>Edit Project: {name}</h1>
+
+
         </>
     )
 }

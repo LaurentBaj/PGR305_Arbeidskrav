@@ -13,7 +13,7 @@ export const Routing: FC = () => {
                     <Route path={"/employees"} component={Employees} />
                     <Route exact path={"/projects"} component={Projects} />
                     <Route path={"/customers"} component={Customers} />
-                    <Route path={`/projects/edit`} component={EditProject} />
+                    <Route path={`/projects/edit/:name`} component={EditProject} />
                 </Switch>
             </BrowserRouter>
         </>
