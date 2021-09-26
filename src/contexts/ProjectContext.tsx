@@ -13,7 +13,6 @@ export const ProjectProvider:FC = ({children}) => {
         setProjects([...projects, newProject])
     }
 
-
     return (
         <>
             <ProjectContext.Provider value={{projects, addProject}}>
