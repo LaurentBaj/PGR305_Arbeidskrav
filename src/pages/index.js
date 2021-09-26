@@ -1,6 +1,7 @@
 import {Customers} from "./Customers";
 import {Employees} from "./Employees";
 import {Projects} from "./Projects";
-import {EditProject} from "./EditProject";
+import {ProjectView} from "./ProjectView";
+import {Home} from "./Home";
 
-export { Customers, Projects, Employees, EditProject }
+export { Home, Customers, Projects, Employees, ProjectView }
