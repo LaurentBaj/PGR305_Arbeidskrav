@@ -1,8 +1,9 @@
-import {FC, useContext, useEffect, useState} from "react";
+import {FC, useContext, useState} from "react";
 import {IProject} from "../../interfaces/interfaces";
 import {ProjectContext} from "../../contexts/ProjectContext";
 import {ProjectContextType} from "../../types/ProjectContextType";
 import {useHistory} from "react-router-dom";
+import {Status} from "../shared/enums";
 
 export const EditProjectForm:FC<IProject> = ({name, status, employees}) => {
     const history = useHistory()
@@ -22,6 +23,18 @@ export const EditProjectForm:FC<IProject> = ({name, status, employees}) => {
         history.push("/projects")
     }
 
+    function changeStatus(stat: Status) {
+        if (stat.toUpperCase() === "START" ||
+            stat.toUpperCase() === "PENDING" ||
+            stat.toUpperCase() === "FINISHED")
+        {
+            projects[index].status = stat
+            history.push("/projects")
+        } else {
+            alert("Status not recognized")
+        }
+    }
+
     return (
         <>
             <form>
@@ -31,7 +44,7 @@ export const EditProjectForm:FC<IProject> = ({name, status, employees}) => {
                 <button onClick={changeName}>Edit</button>
                 <label>Project Status: {status}</label>
                 <input value={newStatus} onChange={e => setNewStatus(e.target.value)} type="text"/>
-                <button>Edit</button>
+                <button onClick={() => {changeStatus(newStatus as Status)}}>Edit</button>
                 <label>Add employee</label>
                 <input value={newEmp} onChange={e => setNewEmp(e.target.value)} type="text"/>
                 <button>Edit</button>
