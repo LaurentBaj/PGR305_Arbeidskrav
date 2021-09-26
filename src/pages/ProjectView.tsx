@@ -6,6 +6,7 @@ import {ProjectContextType} from "../types/ProjectContextType";
 import {EmployeeItem} from "../components/employees/EmployeeItem";
 import {EditProjectForm} from "../components/projects_/EditProjectForm";
 import {Status} from "../components/shared/enums";
+import {ProjectItem} from "../components/projects_/ProjectItem";
 
 
 export const ProjectView:FC<IProject> = () => {
@@ -15,14 +16,9 @@ export const ProjectView:FC<IProject> = () => {
 
     return (
         <>
-            <h1>{project?.name}</h1>
-            <h3>{project?.status}</h3>
-            {project?.employees.map( (e, key) => {
-                return <EmployeeItem name={e.name} job_desc={e.job_desc} key={key} />
-            })}
-            {/* Not sure why I can't do this to show specific proj
-                <ProjectItem name={project?.name} status={project?.status} employees={project?.employees} />
-            */}
+            {/*View Specific Project clicked on, show all its employees + Form to alter project details*/}
+            <ProjectItem name={project?.name as string} status={project?.status as Status} employees={project?.employees as IEmployee[]} />
+            {project?.employees.map( (e) => {return <EmployeeItem name={e.name} job_desc={e.job_desc} /> })}
             <EditProjectForm name={project?.name as string} status={project?.status as Status} employees={project?.employees as IEmployee[]} />
         </>
     )

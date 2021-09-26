@@ -1,6 +1,5 @@
 import {FC, useState} from "react";
-import {IEmployee, IProject} from "../../interfaces/interfaces";
-import {Status} from "../shared/enums";
+import {IProject} from "../../interfaces/interfaces";
 
 export const EditProjectForm:FC<IProject> = ({name, status, employees}) => {
     const [newName, setNewName] = useState(name)
