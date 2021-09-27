@@ -1,10 +1,9 @@
 import {FC, useContext, useState} from "react";
-import {IEmployee, IProject} from "../../interfaces/interfaces";
+import {IProject} from "../../interfaces/interfaces";
 import {ProjectContext} from "../../contexts/ProjectContext";
 import {ProjectContextType} from "../../types/ProjectContextType";
 import {useHistory} from "react-router-dom";
 import {Status} from "../shared/enums";
-import {getEmployees} from "../employees/employee-data";
 import {EmployeeItem} from "../employees/EmployeeItem";
 
 export const EditProjectForm:FC<IProject> = ({name, status, employees}) => {
@@ -49,9 +48,9 @@ export const EditProjectForm:FC<IProject> = ({name, status, employees}) => {
         } else if(all_employees.some(e => e.name === empName)) {
             alert("Employee already exists")
         } else {
-            all_employees.push({name: empName, job_desc:empJob})
-            projects[index].employees.push({name: empName, job_desc:empJob})
-            alert(`Employee: ${empName} added to Project: ${name}`)
+            all_employees.push({name: empName, job_desc:empJob}) // Add emp to list of all emps
+            projects[index].employees.push({name: empName, job_desc:empJob}) // add emp to this project
+            alert(`Employee: ${empName} has been added to Project: ${name}`)
             history.push("/projects")
         }
     }
@@ -68,9 +67,10 @@ export const EditProjectForm:FC<IProject> = ({name, status, employees}) => {
                 <button onClick={() => {changeStatus(newStatus as Status)}}>Edit</button>
                 <br/>
                 <h3>Add employee</h3>
-                <label htmlFor="">Employee Name: </label>
+                <p>(You cannot add an existing employee)</p>
+                <label>Employee Name: </label>
                 <input value={empName} onChange={e => setEmpName(e.target.value)} type="text"/>
-                <label htmlFor="">Job Description: </label>
+                <label>Job Description: </label>
                 <input  value={empJob} onChange={e => setEmpJob(e.target.value)} type="text"/>
                 <button onClick={() => addEmployee(empName, empJob)} >Edit</button>
                 <h3>List of employees in your firm</h3>
