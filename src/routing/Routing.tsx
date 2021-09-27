@@ -11,13 +11,15 @@ export const Routing: FC = () => {
             <BrowserRouter>
                 <MainNavigation />
                 <Switch>
-                    <Route exact path={"/"} component={Home} />
-                    <Route path={"/employees"} component={Employees} />
-                    <Route path={"/customers"} component={Customers} />
-                    <ProjectProvider>
-                        <Route exact path={"/projects"} component={Projects} />
-                        <Route path={`/projects/edit/:name`} component={ProjectView} />
-                    </ProjectProvider>
+                    <div className={"this_style"}>
+                        <Route exact path={"/"} component={Home} />
+                        <Route path={"/customers"} component={Customers} />
+                        <ProjectProvider>
+                            <Route path={"/employees"} component={Employees} />
+                            <Route exact path={"/projects"} component={Projects} />
+                            <Route path={`/projects/edit/:name`} component={ProjectView} />
+                        </ProjectProvider>
+                    </div>
                 </Switch>
             </BrowserRouter>
         </>

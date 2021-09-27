@@ -2,14 +2,23 @@ import {FC, useContext, useState} from "react";
 import {ProjectContext} from "../../contexts/ProjectContext";
 import {ProjectContextType} from "../../types/ProjectContextType";
 import {Status} from "../shared/enums";
+import {useHistory} from "react-router-dom";
 
 export const AddProject:FC = () => {
     const [newProject, setNewProject] = useState("")
-    const {addProject} = useContext(ProjectContext) as ProjectContextType
+    const {projects} = useContext(ProjectContext) as ProjectContextType
+    const history = useHistory()
 
     function action() {
-        addProject({name: newProject, status: Status.START, employees: []})
-        setNewProject("")
+        if (!newProject){
+            alert("Field can't be empty")
+        } else if (!newProject || !projects.some(p => p.name === newProject)) {
+            projects.push({name: newProject, status: Status.START, employees: []})
+            setNewProject("")
+            history.push("/projects")
+        } else {
+            alert("Project Name already exists")
+        }
     }
 
     return (

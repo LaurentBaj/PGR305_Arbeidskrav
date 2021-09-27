@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 
 export const ProjectList:FC = () => {
     const {projects} = useContext(ProjectContext) as ProjectContextType
+
     return (
         <section>
             {projects.map( (p, key) => {

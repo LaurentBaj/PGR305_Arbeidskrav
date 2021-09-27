@@ -46,12 +46,12 @@ export const EditProjectForm:FC<IProject> = ({name, status, employees}) => {
         if (!empName || !empJob) {
             alert("Both fields for employee creation need to be filled")
         } else if(all_employees.some(e => e.name === empName)) {
-            alert("Employee already exists")
-        } else {
-            all_employees.push({name: empName, job_desc:empJob}) // Add emp to list of all emps
             projects[index].employees.push({name: empName, job_desc:empJob}) // add emp to this project
             alert(`Employee: ${empName} has been added to Project: ${name}`)
             history.push("/projects")
+        } else {
+            alert("Employee does not exist in your firm. You can register this person" +
+                "in the Employee-Site")
         }
     }
 

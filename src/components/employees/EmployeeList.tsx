@@ -1,20 +1,16 @@
-import {FC, useEffect, useState} from "react";
-import {IEmployee} from "../../interfaces/interfaces";
+import {FC, useContext} from "react";
 import {EmployeeItem} from "./EmployeeItem";
-import {getEmployees} from "./employee-data";
+import {ProjectContext} from "../../contexts/ProjectContext";
+import {ProjectContextType} from "../../types/ProjectContextType";
 
 
 
 export const EmployeeList: FC = () => {
-    const [ employees, setEmployees ] = useState<Array<IEmployee>>([])
-
-    useEffect( () => {
-        setEmployees(getEmployees)
-    }, [employees])
+    const {all_employees} = useContext(ProjectContext) as ProjectContextType
 
     return (
         <>
-            { employees.map( (employee) => {
+            { all_employees.map( (employee) => {
                 return <EmployeeItem name={employee.name} job_desc={employee.job_desc} />
             })}
         </>
