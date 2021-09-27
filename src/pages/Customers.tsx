@@ -7,6 +7,7 @@ export const Customers:FC = () => {
             <section>
                 <h1>Your Customers</h1>
                 <CustomerList />
+                <img className="img-fluid" src={require(`../assets/images/puzzle.jpg`).default} alt=""/>
             </section>
         </>
     )
