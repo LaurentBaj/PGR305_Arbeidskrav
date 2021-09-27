@@ -24,7 +24,7 @@ export const AddProject:FC = () => {
     return (
         <>
             <h1>Add Project</h1>
-            <input type="text" value={newProject} onChange={e => {setNewProject(e.target.value)}}/>
+            <input placeholder={"Project name"} type="text" value={newProject} onChange={e => {setNewProject(e.target.value)}}/>
             <button onClick={action}>Submit</button>
         </>
     )

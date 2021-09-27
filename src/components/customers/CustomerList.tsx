@@ -11,9 +11,11 @@ export const CustomerList:FC = () => {
     )
     return (
         <>
-            { customers.map( (customer) => {
-                return <CustomerItem name={customer.name} />
-            })}
+            <ul>
+                { customers.map( (customer) => {
+                    return <li><CustomerItem name={customer.name} /></li>
+                })}
+            </ul>
         </>
     )
 }

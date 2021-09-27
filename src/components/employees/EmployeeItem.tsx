@@ -5,8 +5,7 @@ export const EmployeeItem:FC<IEmployee> = ({name, job_desc}) => {
     return (
         <>
             <article>
-                <h3>{name}</h3>
-                <p>Job Description: {job_desc}</p>
+                <p><b>{name}</b> -- Job Description: <b>{job_desc}</b></p>
             </article>
         </>
     )

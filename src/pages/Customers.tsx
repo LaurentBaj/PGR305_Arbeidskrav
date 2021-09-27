@@ -5,7 +5,7 @@ export const Customers:FC = () => {
     return (
         <>
             <section>
-                <h3>Your Customers</h3>
+                <h1>Your Customers</h1>
                 <CustomerList />
             </section>
         </>

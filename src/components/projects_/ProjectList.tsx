@@ -10,13 +10,17 @@ export const ProjectList:FC = () => {
 
     return (
         <section>
-            {projects.map( (p, key) => {
-                return (
-                    <Link to={`/projects/edit/${p.name}`}>
-                        <ProjectItem key={key} name={p.name} status={p.status} employees={p.employees} />
-                    </Link>
-                )
-            })}
+            <ul>
+                {projects.map( (p, key) => {
+                    return (
+                        <li key={key}>
+                            <Link to={`/projects/edit/${p.name}`}>
+                                <ProjectItem key={key} name={p.name} status={p.status} employees={p.employees} />
+                            </Link>
+                        </li>
+                    )
+                })}
+            </ul>
         </section>
     )
 }
