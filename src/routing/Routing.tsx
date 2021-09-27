@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {MainNavigation} from "../components/shared/MainNavigation";
 import {Customers, Employees, Home, Projects, ProjectView} from "../pages"
 import {ProjectProvider} from "../contexts/ProjectContext";
+import "./routing.css"
 
 
 export const Routing: FC = () => {

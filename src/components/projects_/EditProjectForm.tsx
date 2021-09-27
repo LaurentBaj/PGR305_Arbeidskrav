@@ -64,10 +64,11 @@ export const EditProjectForm:FC<IProject> = ({name, status, employees}) => {
                 <button onClick={changeName}>Edit</button>
                 <label>Project Status: {status}</label>
                 <input value={newStatus} onChange={e => setNewStatus(e.target.value)} type="text"/>
+                <p>(Start, Pending or Finished)</p>
                 <button onClick={() => {changeStatus(newStatus as Status)}}>Edit</button>
                 <br/>
                 <h3>Add employee</h3>
-                <p>(You cannot add an existing employee)</p>
+                <p>(You can only add employees that are registered)</p>
                 <label>Employee Name: </label>
                 <input value={empName} onChange={e => setEmpName(e.target.value)} type="text"/>
                 <label>Job Description: </label>
