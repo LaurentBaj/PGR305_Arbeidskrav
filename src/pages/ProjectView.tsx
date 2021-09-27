@@ -18,6 +18,7 @@ export const ProjectView:FC<IProject> = () => {
         <>
             {/*View Specific Project clicked on, show all its employees + Form to alter project details*/}
             <ProjectItem name={project?.name as string} status={project?.status as Status} employees={project?.employees as IEmployee[]} />
+            <h2>Employees</h2>
             {project?.employees.map( (e) => {return <EmployeeItem name={e.name} job_desc={e.job_desc} /> })}
             <EditProjectForm name={project?.name as string} status={project?.status as Status} employees={project?.employees as IEmployee[]} />
         </>

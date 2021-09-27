@@ -1,9 +1,11 @@
 import {FC, useContext, useState} from "react";
-import {IProject} from "../../interfaces/interfaces";
+import {IEmployee, IProject} from "../../interfaces/interfaces";
 import {ProjectContext} from "../../contexts/ProjectContext";
 import {ProjectContextType} from "../../types/ProjectContextType";
 import {useHistory} from "react-router-dom";
 import {Status} from "../shared/enums";
+import {getEmployees} from "../employees/employee-data";
+import {EmployeeItem} from "../employees/EmployeeItem";
 
 export const EditProjectForm:FC<IProject> = ({name, status, employees}) => {
     const history = useHistory()
@@ -11,13 +13,19 @@ export const EditProjectForm:FC<IProject> = ({name, status, employees}) => {
     // Form Elements
     const [newName, setNewName] = useState(name)
     const [newStatus, setNewStatus] = useState(status as string)
-    const [newEmp, setNewEmp] = useState("")
+    const [empName, setEmpName] = useState("")
+    const [empJob, setEmpJob] = useState("")
 
     // Current Project
     const {projects} = useContext(ProjectContext) as ProjectContextType
     const index = projects.findIndex(p => p.name === name)
 
 
+    // All Projects
+    const {all_employees} = useContext(ProjectContext) as ProjectContextType
+
+
+    // Form Edit Functions
     function changeName() {
         projects[index].name = newName
         history.push("/projects")
@@ -35,6 +43,19 @@ export const EditProjectForm:FC<IProject> = ({name, status, employees}) => {
         }
     }
 
+    function addEmployee(empName: string, empJob: string) {
+        if (!empName || !empJob) {
+            alert("Both fields for employee creation need to be filled")
+        } else if(all_employees.some(e => e.name === empName)) {
+            alert("Employee already exists")
+        } else {
+            all_employees.push({name: empName, job_desc:empJob})
+            projects[index].employees.push({name: empName, job_desc:empJob})
+            alert(`Employee: ${empName} added to Project: ${name}`)
+            history.push("/projects")
+        }
+    }
+
     return (
         <>
             <form>
@@ -45,9 +66,17 @@ export const EditProjectForm:FC<IProject> = ({name, status, employees}) => {
                 <label>Project Status: {status}</label>
                 <input value={newStatus} onChange={e => setNewStatus(e.target.value)} type="text"/>
                 <button onClick={() => {changeStatus(newStatus as Status)}}>Edit</button>
-                <label>Add employee</label>
-                <input value={newEmp} onChange={e => setNewEmp(e.target.value)} type="text"/>
-                <button>Edit</button>
+                <br/>
+                <h3>Add employee</h3>
+                <label htmlFor="">Employee Name: </label>
+                <input value={empName} onChange={e => setEmpName(e.target.value)} type="text"/>
+                <label htmlFor="">Job Description: </label>
+                <input  value={empJob} onChange={e => setEmpJob(e.target.value)} type="text"/>
+                <button onClick={() => addEmployee(empName, empJob)} >Edit</button>
+                <h3>List of employees in your firm</h3>
+                {all_employees.map( (e, key) => {
+                    return <li key={key}><EmployeeItem name={e.name} job_desc={e.job_desc} /></li>
+                })}
             </form>
         </>
     )
